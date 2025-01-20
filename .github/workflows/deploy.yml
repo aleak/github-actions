@@ -1,12 +1,6 @@
 name: deploy
 
 on:
-  workflow_call:
-    inputs:
-      environment:
-        description: Environment
-        required: true
-        type: string
   workflow_dispatch:
     inputs:
       environment:
@@ -17,6 +11,12 @@ on:
           - dev
           - uat
           - prod
+  workflow_call:
+    inputs:
+      environment:
+        description: Environment
+        required: true
+        type: string
 
 jobs:
   pass-thgrough:
