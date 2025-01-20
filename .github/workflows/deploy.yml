@@ -50,4 +50,3 @@ jobs:
           echo '${{ vars.MYVAR_VALUE1 }}'
           echo 'Env Specific Secrets'
           echo '${{ secrets.MYVAR_SECRET1 }}'
-
