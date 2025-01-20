@@ -37,6 +37,7 @@ jobs:
       - name: ShowVars
         run: |
           set -ex
+          echo 'Running on Tag : >${{ inputs.git_tag }}<'
           echo 'Environment : ${{ inputs.environment }}'
           echo 'Env Specific Variables'
           echo '${{ vars.MYVAR_VALUE1 }}'
