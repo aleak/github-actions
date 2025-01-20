@@ -1,22 +1,22 @@
 name: deploy
 
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: Environment
-        required: true
-        type: string
-        options:
-          - dev
-          - uat
-          - prod
   workflow_call:
     inputs:
       environment:
         description: Environment
         required: true
         type: string
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Environment
+        required: true
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
 
 jobs:
   pass-thgrough:
