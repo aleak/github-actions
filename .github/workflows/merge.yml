@@ -9,4 +9,5 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: dev
+      git_tag: v1.0.0
     secrets: inherit

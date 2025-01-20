@@ -7,6 +7,10 @@ on:
         description: Environment
         required: true
         type: string
+      git_tag:
+        required: true
+        type: string
+
   workflow_dispatch:
     inputs:
       environment:
@@ -27,13 +31,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.git_tag }}
 
       - name: ShowVars
         run: |
           set -ex
           echo 'Environment : ${{ inputs.environment }}'
-          echo 'Variables'
-          env | sort
           echo 'Env Specific Variables'
           echo '${{ vars.MYVAR_VALUE1 }}'
           echo 'Env Specific Secrets'
