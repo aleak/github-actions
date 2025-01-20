@@ -20,5 +20,5 @@ jobs:
 
       - name: ShowVars
         run: |
-        echo 'Variables'
-        env | sort
+          echo 'Variables'
+          env | sort
