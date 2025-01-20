@@ -28,6 +28,9 @@ on:
           - dev
           - uat
           - prod
+      git_tag:
+        required: true
+        type: string
 
 jobs:
   pass-thgrough:
