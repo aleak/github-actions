@@ -29,5 +29,4 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       environment: dev
-      git_tag: ${{ needs.release.outputs.new_release_version }}
     secrets: inherit

@@ -14,9 +14,6 @@ on:
         description: Environment
         required: true
         type: string
-      git_tag:
-        required: true
-        type: string
 
   workflow_dispatch:
     inputs:
@@ -28,9 +25,6 @@ on:
           - dev
           - uat
           - prod
-      git_tag:
-        required: true
-        type: string
 
 jobs:
   pass-thgrough:
@@ -41,13 +35,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.git_tag }}
 
       - name: ShowVars
         run: |
           set -ex
-          echo 'Running on Tag : >${{ inputs.git_tag }}<'
+          echo 'Running on Tag : >${{ github.action_ref }}<'
           echo 'Environment : ${{ inputs.environment }}'
           echo 'Env Specific Variables'
           echo '${{ vars.MYVAR_VALUE1 }}'
