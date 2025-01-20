@@ -39,7 +39,7 @@ jobs:
       - name: ShowVars
         run: |
           set -ex
-          echo 'Running on Tag : >${{ github.action_ref }}<'
+          echo 'Running on Tag : >${{ github }}<'
           echo 'Environment : ${{ inputs.environment }}'
           echo 'Env Specific Variables'
           echo '${{ vars.MYVAR_VALUE1 }}'
