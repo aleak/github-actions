@@ -20,6 +20,7 @@ jobs:
 
       - name: ShowVars
         run: |
+          set -ex
           echo 'Environment : ${{ inputs.environment }}'
           echo 'Variables'
           env | sort | grep MYVAR
