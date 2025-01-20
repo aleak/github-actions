@@ -40,8 +40,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
+          echo 'Running on Tag : >${{github.ref_name}}<'
           echo "$GITHUB_CONTEXT"
-          echo 'Running on Tag : >$GITHUB_CONTEXT<'
           echo 'Environment : ${{ inputs.environment }}'
           echo 'Env Specific Variables'
           echo '${{ vars.MYVAR_VALUE1 }}'
