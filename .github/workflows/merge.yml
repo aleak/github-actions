@@ -5,9 +5,28 @@ on:
     branches: [ "main" ]
 
 jobs:
+
+  release:
+    name: Semantic
+    runs-on: ubuntu-latest
+    outputs:
+      new_release_published: ${{ steps.semantic.outputs.new_release_published }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cycjimmy/semantic-release-action@v4
+        id: semantic
+        with:
+          semantic_version: 24.2.1
+          extra_plugins: |
+            conventional-changelog-conventionalcommits
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   deploy:
+    needs: release
+    if: needs.release.outputs.new_release_published == 'true'
     uses: ./.github/workflows/deploy.yml
     with:
       environment: dev
-      git_tag: v1.0.0
+      git_tag: needs.release.outputs.new_release_version
     secrets: inherit
