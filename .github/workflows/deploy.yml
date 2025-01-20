@@ -1,5 +1,5 @@
 name: Deploy
-run-name: Deploy to ${{ inputs.environment }} - ${{ inputs.git_tag }}
+run-name: Deploy to ${{ inputs.environment }} - ${{ github.ref_name }}
 
 permissions:
   contents: write
