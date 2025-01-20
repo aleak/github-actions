@@ -1,0 +1,13 @@
+name: merge
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    environment: dev
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: dev
+    secrets: inherit
