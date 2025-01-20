@@ -23,7 +23,7 @@ jobs:
           set -ex
           echo 'Environment : ${{ inputs.environment }}'
           echo 'Variables'
-          env | sort | grep MYVAR
+          env | sort
           echo 'Env Specific Variables'
           echo '${{ vars.MYVAR_VALUE1 }}'
 
