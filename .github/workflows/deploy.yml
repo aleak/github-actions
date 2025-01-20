@@ -1,6 +1,12 @@
 name: Deploy
 run-name: Deploy to ${{ inputs.environment }} - ${{ inputs.git_tag }}
 
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
 on:
   workflow_call:
     inputs:
