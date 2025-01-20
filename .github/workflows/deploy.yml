@@ -37,9 +37,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: ShowVars
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         run: |
           set -ex
-          echo 'Running on Tag : >${{ github }}<'
+          echo 'Running on Tag : >$GITHUB_CONTEXT<'
           echo 'Environment : ${{ inputs.environment }}'
           echo 'Env Specific Variables'
           echo '${{ vars.MYVAR_VALUE1 }}'
